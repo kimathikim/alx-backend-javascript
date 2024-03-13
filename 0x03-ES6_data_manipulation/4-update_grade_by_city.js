@@ -1,13 +1,11 @@
-export default function updateStudentGradeByCity(array, city, newGrades) {
-    // this function will return an array of students for a given location
-    if (Array.isArray(array)) {
-        return array.map((student) => {
-            const studentGrade = newGrades.filter((grade) => grade.studentId === student.id);
-            if (student.location === city && studentGrade.length > 0) {
-                return { ...student, grade: studentGrade[0].grade };
-            }
+export default function updateStudentGradeByCity(students, city, newGrades) {
+    return students
+        .filter((student) => student.location.localeCompare(city) === 0)
+        .map((x) => {
+            const newGrade = newGrades.filter((y) => y.studentId === x.id);
+            const student = x;
+            if (newGrade.length === 1) student.grade = newGrade[0].grade;
+            else student.grade = 'N/A';
             return student;
         });
-    }
-    return [];
 }
