@@ -1,41 +1,59 @@
 interface Student {
-    firstName: string;
-    lastName: string;
-    age: number;
-    location: string;
+  firstName: string;
+  lastName: string;
+  age: number;
+  location: string;
 }
 
 const student1: Student = {
-    firstName: 'kimathi',
-    lastName: 'muriuki',
-    age: 23,
-    location: 'Nakuru',
+  firstName: "Besthor",
+  lastName: "Igbe",
+  age: 20,
+  location: "New York",
 };
 
 const student2: Student = {
-    firstName: 'Legend',
-    lastName: 'mavin',
-    age: 20,
-    location: 'nairobi',
+  firstName: "Jane",
+  lastName: "Blessedb",
+  age: 22,
+  location: "Los Angeles",
 };
 
-let studentsList: Student[] = [student1, student2];
+const studentsList: Student[] = [student1, student2];
 
-const table = document.createElement('table');
-const tbody = document.createElement('tbody');
+function createTable(): void {
+  const table = document.createElement("table");
+  const tableHead = document.createElement("thead");
+  const tableBody = document.createElement("tbody");
 
-studentsList.forEach((student) => {
-    const row = document.createElement('tr');
-    const firstNameCell = document.createElement('td');
-    const locationCell = document.createElement('td');
+  const headerRow = document.createElement("tr");
+  const firstNameHeader = document.createElement("th");
+  const locationHeader = document.createElement("th");
+
+  firstNameHeader.textContent = "First Name";
+  locationHeader.textContent = "Location";
+
+  headerRow.appendChild(firstNameHeader);
+  headerRow.appendChild(locationHeader);
+  tableHead.appendChild(headerRow);
+  table.appendChild(tableHead);
+
+  studentsList.forEach((student) => {
+    const row = document.createElement("tr");
+    const firstNameCell = document.createElement("td");
+    const locationCell = document.createElement("td");
 
     firstNameCell.textContent = student.firstName;
     locationCell.textContent = student.location;
 
     row.appendChild(firstNameCell);
     row.appendChild(locationCell);
-    tbody.appendChild(row);
-});
+    tableBody.appendChild(row);
+  });
 
-table.appendChild(tbody);
-document.body.appendChild(table);
+  table.appendChild(tableBody);
+  document.body.appendChild(table);
+}
+
+createTable();
+
