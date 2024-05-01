@@ -1,3 +1,6 @@
-const displayMessage = (d) => console.log(d);
+const dislayMessage = (message) => {
+  console.log(message);
+};
 
-module.exports = displayMessage;
+export { dislayMessage };
+
