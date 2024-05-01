@@ -14,7 +14,6 @@ module.exports = function countStudents(path) {
     // declarate two dictionaries for count each fields and store list of students
     const fields = {};
     const students = {};
-
     lines.forEach((line) => {
       const list = line.split(",");
       if (!fields[list[idxFd]]) fields[list[idxFd]] = 0;
