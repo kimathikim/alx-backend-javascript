@@ -1,6 +1,3 @@
-const dislayMessage = (message) => {
-  console.log(message);
-};
+const displayMessage = (message) => console.log(message)
 
-export { dislayMessage };
-
+module.exports = displayMessage;
