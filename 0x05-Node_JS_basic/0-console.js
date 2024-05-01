@@ -1,5 +1,3 @@
-#!/usr/bin/env node
+const displayMessage = (d) => console.log(d);
 
-process.argv.forEach(function (val, index, array) {
-  console.log(index + ': ' + val);
-});
+module.exports = displayMessage;
