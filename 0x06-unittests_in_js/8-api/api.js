@@ -6,7 +6,7 @@ const hostname = "localhost";
 const port = 7865;
 
 app.get("/", (req, res) => {
-  res.send("Welcome to the payment system\n");
+  res.send("Welcome to the payment system");
 });
 
 app.listen(port, () => {
