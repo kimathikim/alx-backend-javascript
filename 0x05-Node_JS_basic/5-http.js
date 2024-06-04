@@ -43,19 +43,15 @@ function countStudents(path) {
 const path = process.argv[2];
 const hostname = '127.0.0.1';
 
-const hostname = "127.0.0.1";
 const port = 1245;
-
+const app = http.createServer((req, res) => {
   res.setHeader('Content-Type', 'text/plain');
   if (req.url === '/') res.end('Hello Holberton School!');
   if (req.url === '/students') {
     res.write('This is the list of our students\n');
-  if (req.url === "/students") {
-    res.write("This is the list of our students\n");
-    countStudents(process.argv[2])
+    countStudents(path)
+      .then((data) => {
         res.write(data.listStudents.join('\n'));
-        res.write(data.numberStudents);
-        res.write(data.listStudents.join("\n"));
         res.end();
       })
       .catch((err) => {
