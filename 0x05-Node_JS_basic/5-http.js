@@ -51,6 +51,7 @@ const app = http.createServer((req, res) => {
     res.write('This is the list of our students\n');
     countStudents(path)
       .then((data) => {
+        res.write(data.numberStudents);
         res.write(data.listStudents.join('\n'));
         res.end();
       })
