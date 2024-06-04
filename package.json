@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "eslint": "^9.4.0",
+    "jest": "^29.7.0",
+    "mkdirp": "^3.0.1"
+  }
+}
